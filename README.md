@@ -47,3 +47,17 @@ The most important thing is that the billing account is connected to your "educa
 **FAQ**: Can I change the weird url? Looks like you can but it's a lot more involved than I initially thought: https://cloud.google.com/run/docs/mapping-custom-domains
 
 **FAQ**: You can deploy multiple times in the same project. My understanding is that you can only delete the deployed app by deleting the entire project. But there's a quota for the number of projects so be careful.
+
+## What you should look for in the website
+
+1. Go to `submit (advanced)` page and upload some of the .txt files from https://github.com/HarlinLee/pic16b-mnist-demo/tree/main/mnist-model/sample-data.
+
+2. Look at the `submit` function in `app.py` and try to understand the general logic.
+
+3. Look at the css files are in the static folder. If you have javascript files, that should also go in there.
+
+4. As before, the jinja template files (and html files) are in the templates folder. This time, some of the templates `extend` the `base.html`, which you can read more about [here](https://flask.palletsprojects.com/en/2.2.x/tutorial/templates/#register) and [here](https://jinja.palletsprojects.com/en/3.1.x/templates/#template-inheritance).
+
+5. When you're working on the web app homework or project, I fully expect you to copy the files from this git repo and modify it.
+   You may need to change requirements.txt, but I recommend keeping the `Dockerfile` as is (unless you have a good understanding of what you're doing!).
+
