@@ -24,7 +24,7 @@ The most important thing is that the __billing account is connected to your "edu
 6. Enable IAM API.
   - Go to "APIs & Servies" menu (you can type it into the search bar at the top).
   - Press "+ Enable APIs and Services" button.
-  - Search Identity and Access Management (IAM) API, and enable it (not to be confused with IAM Service Account Credentials API).
+  - Search "Identity and Access Management (IAM) API", and enable it (not to be confused with IAM Service Account Credentials API).
 7. Create the cloud service.
   - Go to "Cloud Run" menu.
   - Press "+ Create Service" button.
