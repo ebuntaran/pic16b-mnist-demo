@@ -1,17 +1,8 @@
 ## Deploying webapp to Google Cloud
 
-1. Redeem the free student google cloud credit by following instructions from announcement email a couple weeks back.
-2. Install gcloud CLI (https://cloud.google.com/sdk/docs/install).
-ping ping
-    **FAQ**: if you're using mac and have the folder in Downloads, run 
+1. Redeem the free student google cloud credit by following instructions from announcement email last Friday.
 
-    `~/Downloads/google-cloud-sdk/install.sh` instead.
-
-    **FAQ**: if that gives you a 'no permission' error, run
-
-    `sudo ~/Downloads/google-cloud-sdk/install.sh` and enter your macbook password when prompted.
-    
-    **FAQ**: make sure to open a new terminal after installation before trying out `gcloud --version`.
+2. Log on to Google Cloud Console (https://console.cloud.google.com)
     
 3. Copy this repo into your local computer. Both `git clone` and downloading the zip file works.
 
@@ -28,21 +19,27 @@ Once you've checked that the website is working locally, you can close the flask
 
 5. Now, go to Google Cloud console (https://console.cloud.google.com/) and create a new project. 
 Project ID can be anything, and the organization can be "no organization". 
-The most important thing is that the billing account is connected to your "education" billing account (which is where your free credit should be at).
+The most important thing is that the __billing account is connected to your "education" billing account__ (which is where your free credit should be at).
 
-6. Assuming your gcloud CLI is correctly installed, go to your terminal and run `gcloud init`. The prompt should be pretty self explanatory - it will ask you to log in and choose your project.
+6. Enable IAM API.
+  - Go to "APIs & Servies" menu (you can type it into the search bar at the top).
+  - Press "+ Enable APIs and Services" button.
+  - Search Identity and Access Management (IAM) API, and enable it (not to be confused with IAM Service Account Credentials API).
+7. Create the cloud service.
+  - Go to "Cloud Run" menu.
+  - Press "+ Create Service" button.
+  - Select "Continuously deploy new revisions from a source repository".
+  - Click on "Set up with cloud build"
+    - Select your GitHub repository.
+      - You may have to authenticate to GitHub first.
+    - Select docker build option.
 
-7. Next, run `gcloud run deploy`. You'll see prompts like this:
+  - For region, let's use "us-west-1".
+  - For revision autoscaling, let's use 0 to 5 for this class, as this is supposed to be a small app.
+  - For Authentication, select "Allow unauthenticated invocations".
+  - If everything goes smoothly, your service should run at some url that looks like https://mnist-[...]-wn.a.run.app/. You will have to wait several minutes for your app to be built first.
 
-- Source code location (/Users/harlin/Desktop/16B-W23/lectures/flask/mnist): just hit enter, as long as you're in the same folder where you locally ran the flask app earlier.
-
-- Service name (mnist): just hit enter.
-
-- Please specify a region: type in one of the us-west numbers.
-
-- Whenever it asks you a y/n question about permission, type in y.
-
-- If everything goes smoothly, it should print out some url that looks like https://mnist-[...]-wn.a.run.app/.
+**FAQ**: If you see trigger failed error, you might have missed enabling IAM API. You can go enable it, then trigger the build again by pushing something to the repository. 
 
 **FAQ**: Can I change the weird url? Looks like you can but it's a lot more involved than I initially thought: https://cloud.google.com/run/docs/mapping-custom-domains
 
@@ -50,14 +47,14 @@ The most important thing is that the billing account is connected to your "educa
 
 ## What you should look for in the website
 
-1. Go to `submit (advanced)` page and upload some of the .txt files from https://github.com/HarlinLee/pic16b-mnist-demo/tree/main/mnist-model/sample-data.
+1. Go to `submit (advanced)` page and upload some of the .txt files from https://github.com/pic16b-ucla/pic16b-mnist-demo/tree/main/mnist-model/sample-data.
 
 2. Look at the `submit` function in `app.py` and try to understand the general logic.
 
 3. Look at the css files are in the static folder. If you have javascript files, that should also go in there.
 
-4. As before, the jinja template files (and html files) are in the templates folder. This time, some of the templates `extend` the `base.html`, which you can read more about [here](https://flask.palletsprojects.com/en/2.2.x/tutorial/templates/#register) and [here](https://jinja.palletsprojects.com/en/3.1.x/templates/#template-inheritance).
+4. As before, the jinja template files (and html files) are in the templates folder. This time, some of the templates `extend` the `base.html`, which you can read more about [here](https://flask.palletsprojects.com/en/3.0.x/tutorial/templates/#register) and [here](https://jinja.palletsprojects.com/en/3.1.x/templates/#template-inheritance).
 
 5. When you're working on the web app homework or project, I fully expect you to copy the files from this git repo and modify it.
-   You may need to change requirements.txt, but I recommend keeping the `Dockerfile` as is (unless you have a good understanding of what you're doing!).
+   You may need to change `requirements.txt` based on packages and their versions you use, but I recommend keeping the `Dockerfile` and `Procfile` as is (unless you have a good understanding of what you're doing!).
 
