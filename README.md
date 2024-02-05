@@ -2,7 +2,7 @@
 
 1. Redeem the free student google cloud credit by following instructions from announcement email a couple weeks back.
 2. Install gcloud CLI (https://cloud.google.com/sdk/docs/install).
-ping
+ping ping
     **FAQ**: if you're using mac and have the folder in Downloads, run 
 
     `~/Downloads/google-cloud-sdk/install.sh` instead.
