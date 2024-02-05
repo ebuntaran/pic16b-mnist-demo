@@ -44,7 +44,7 @@ The most important thing is that the __billing account is connected to your "edu
 
 **FAQ**: Can I change the weird url? Looks like you can but it's a lot more involved than I initially thought: https://cloud.google.com/run/docs/mapping-custom-domains
 
-**FAQ**: You can deploy multiple times in the same project. My understanding is that you can only delete the deployed app by deleting the entire project. But there's a quota for the number of projects so be careful.
+**FAQ**: You can deploy multiple times in the same project. You can delete the deployed app from the "Services" tab of the "Cloud Run" menu. But there's a quota for the number of projects so be careful.
 
 ## What you should look for in the website
 
