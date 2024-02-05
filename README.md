@@ -1,4 +1,4 @@
-## Deploying webapp to Google Cloud
+## Deploying webapp to Google Cloud from GitHub repository
 
 1. Redeem the free student google cloud credit by following instructions from announcement email last Friday.
 
@@ -39,6 +39,8 @@ The most important thing is that the __billing account is connected to your "edu
   - For Authentication, select "Allow unauthenticated invocations".
   - If everything goes smoothly, your service should run at some url that looks like https://mnist-[...]-wn.a.run.app/. You will have to wait several minutes for your app to be built first.
 
+8. You can update your app by pushing to the `main` branch on GitHub.
+   
 **FAQ**: If you see trigger failed error, you might have missed enabling IAM API. You can go enable it, then trigger the build again by pushing something to the repository. 
 
 **FAQ**: Can I change the weird url? Looks like you can but it's a lot more involved than I initially thought: https://cloud.google.com/run/docs/mapping-custom-domains
