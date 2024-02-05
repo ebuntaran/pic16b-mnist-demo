@@ -4,7 +4,7 @@ import sklearn as sk
 import matplotlib.pyplot as plt
 import numpy as np
 import pickle
-
+import os
 from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
 
@@ -27,9 +27,7 @@ def ask():
             return render_template('ask.html', name=request.form['name'], student=request.form['student'])
         except:
             return render_template('ask.html')
-#######
 
-####### group exercise
 @app.route('/hello/')
 def hello():
     return render_template('hello.html')
