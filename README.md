@@ -2,6 +2,8 @@
 
 1. Redeem the free student google cloud credit by following instructions from announcement email last Friday.
 
+2. Make a fork of this repository.
+
 ### Testing locally
 2. Copy this repo into your local computer. Both `git clone` and downloading the zip file works.
 
