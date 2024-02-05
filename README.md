@@ -8,7 +8,7 @@
 
 4. Inside the code folder `pic16b-mnist-demo`, run 
  ```
-conda activate PIC16B
+conda activate PIC16B-24W
 export FLASK_ENV=development
 flask run
 ```
