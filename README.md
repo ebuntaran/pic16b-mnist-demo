@@ -2,11 +2,10 @@
 
 1. Redeem the free student google cloud credit by following instructions from announcement email last Friday.
 
-2. Log on to Google Cloud Console (https://console.cloud.google.com)
-    
-3. Copy this repo into your local computer. Both `git clone` and downloading the zip file works.
+### Testing locally
+2. Copy this repo into your local computer. Both `git clone` and downloading the zip file works.
 
-4. Inside the code folder `pic16b-mnist-demo`, run 
+3. Inside the code folder `pic16b-mnist-demo`, run 
  ```
 conda activate PIC16B-24W
 export FLASK_ENV=development
@@ -17,15 +16,17 @@ Once you've checked that the website is working locally, you can close the flask
 
   **FAQ**: If you get an error message like "port 5000 is in use", make sure no other flask app is running in your laptop, and run `flask run -p 5001` (or any other number than 5000) instead.
 
-5. Now, go to Google Cloud console (https://console.cloud.google.com/) and create a new project. 
+### Deploying the app
+
+4. Now, go to Google Cloud console (https://console.cloud.google.com/) and create a new project. 
 Project ID can be anything, and the organization can be "no organization". 
 The most important thing is that the __billing account is connected to your "education" billing account__ (which is where your free credit should be at).
 
-6. Enable IAM API.
+5. Enable IAM API.
   - Go to "APIs & Servies" menu (you can type it into the search bar at the top).
   - Press "+ Enable APIs and Services" button.
   - Search "Identity and Access Management (IAM) API", and enable it (not to be confused with IAM Service Account Credentials API).
-7. Create the cloud service.
+6. Create the cloud service.
   - Go to "Cloud Run" menu.
   - Press "+ Create Service" button.
   - Select "Continuously deploy new revisions from a source repository".
@@ -38,13 +39,13 @@ The most important thing is that the __billing account is connected to your "edu
   - For Authentication, select "Allow unauthenticated invocations".
   - If everything goes smoothly, your service should run at some url that looks like https://mnist-[...]-wn.a.run.app/. You will have to wait several minutes for your app to be built first.
 
-8. You can update your app by pushing to the `main` branch on GitHub.
+7. You can update your app by pushing to the `main` branch on GitHub.
    
 **FAQ**: If you see trigger failed error, you might have missed enabling IAM API. You can go enable it, then trigger the build again by pushing something to the repository. 
 
 **FAQ**: Can I change the weird url? Looks like you can but it's a lot more involved than I initially thought: https://cloud.google.com/run/docs/mapping-custom-domains
 
-**FAQ**: You can deploy multiple times in the same project. You can delete the deployed app from the "Services" tab of the "Cloud Run" menu. But there's a quota for the number of projects so be careful.
+**FAQ**: You can deploy multiple times in the same project. You can delete the deployed app from the "Services" tab of the "Cloud Run" menu. Keep your eyes on Billing tab every several days, and try to avoid overcharges -- it often won't be a major issue for lightweight apps, but things can happen.
 
 ## What you should look for in the website
 
