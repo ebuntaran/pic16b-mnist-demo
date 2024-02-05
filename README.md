@@ -49,8 +49,6 @@ The most important thing is that the __billing account is connected to your "edu
 
 **FAQ**: You can deploy multiple times in the same project. You can delete the deployed app from the "Services" tab of the "Cloud Run" menu. Keep your eyes on Billing tab every several days, and try to avoid overcharges -- it often won't be a major issue for lightweight apps, but things can happen. Nothing specifically occurs other than you will no longer be able to use Google Cloud Platform if you use all the credits.
 
-Faculty who need to keep resources for future courses, especially those which are not taught every term, should contact CloudEduGrants@google.com to arrange for credits to archive their materials.
-
 
 
 
