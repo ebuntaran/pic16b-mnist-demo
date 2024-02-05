@@ -33,7 +33,6 @@ The most important thing is that the __billing account is connected to your "edu
     - Select your GitHub repository.
       - You may have to authenticate to GitHub first.
     - Select docker build option.
-
   - For region, let's use "us-west-1".
   - For revision autoscaling, let's use 0 to 5 for this class, as this is supposed to be a small app.
   - For Authentication, select "Allow unauthenticated invocations".
