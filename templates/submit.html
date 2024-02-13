@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+  <!-- form with fields for message and handle -->
   <form method="post">
       <label for="message">Your message:</label>
       <input type="text" name="message" id="message">
@@ -14,6 +15,7 @@
       <br><br>
       <input type="submit" value="Submit message">
   </form>
+  <!-- show messages after submitting -->
   {% if thanks %}
   <br>
   <b>Thanks for your submission!</b>

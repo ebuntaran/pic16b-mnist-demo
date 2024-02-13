@@ -5,9 +5,11 @@
 {% endblock %}
 
 {% block content %}
-
+<!-- loop over all messages in the array -->
   {% for message in messages %}
+  <!-- index to get message -->
   {{message[1]}}<br>
+  <!-- index to get author -->
   <i>~{{message[0]}}</i><br>
   <br>
   {% endfor %}
